@@ -14,6 +14,15 @@ $(call inherit-product, device/oneplus/waffle/device.mk)
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# Lunaris Flags
+LUNARIS_BUILD_TYPE := UNOFFICIAL
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_CUSTOM_UDFPS := true
+TARGET_OPTIMIZED_DEXOPT := true
+TARGET_SUPPORTED_REFRESH_RATES := 60,90,120
+WITH_GMS := true
+WITH_BCR := true
+
 PRODUCT_NAME := lineage_waffle
 PRODUCT_DEVICE := waffle
 PRODUCT_MANUFACTURER := OnePlus
