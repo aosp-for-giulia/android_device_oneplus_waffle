@@ -25,6 +25,10 @@ TARGET_SCREEN_WIDTH := 1440
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/display/displayconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630946450791512195.xml
 
+# Init
+PRODUCT_PACKAGES += \
+    init.haptics.rc
+
 # Keymint
 PRODUCT_PACKAGES += \
     android.hardware.security.keymint3-service.strongbox.nxp \
@@ -45,6 +49,7 @@ PRODUCT_PACKAGES += \
     FrameworksResEuicc_EU \
     FrameworksResEuicc_NA \
     KeyHandlerResTarget \
+    OnePlusSettingsResTarget \
     OPlusFrameworksResTarget \
     OPlusSettingsProviderResTarget \
     OPlusSettingsResTarget \
@@ -87,8 +92,10 @@ $(call soong_config_set,OPLUS_LINEAGE_TOUCH_HAL,HTPR_ENABLE_VALUE,6)
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service
 
-$(call soong_config_set_bool,qti_vibrator,use_effect_stream,true)
-$(call soong_config_set,qti_vibrator,effect_lib,libqtivibratoreffect.oplus.waffle)
+$(call soong_config_set,qti_vibrator,use_effect_stream,true)
+$(call soong_config_set,qti_vibrator,use_effect_stream_strength,true)
+$(call soong_config_set,qti_vibrator,use_primitive_effect_stream,true)
+$(call soong_config_set,qti_vibrator,effect_lib,libqtivibratoreffect.oplus_sm8650-richtap)
 
 # WiFi firmware symlinks
 PRODUCT_PACKAGES += \
